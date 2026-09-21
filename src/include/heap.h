@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 11:57:08 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/21 12:13:40 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/21 12:19:00 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,15 @@ typedef struct s_heap
 	int				capacity;
 	t_sched_type	type;
 }	t_heap;
+
+/* Protótipos do Heap e Comparador */
+int		heap_init(t_heap *heap, int capacity, t_sched_type type);
+void	heap_destroy(t_heap *heap);
+int		heap_push(t_heap *heap, t_node node);
+int		heap_pop(t_heap *heap, t_node *min_out);
+int		heap_peek(const t_heap *heap, t_node *min_out);
+
+/* A função cirúrgica para a avaliação (Live Coding) */
+int		should_serve_first(t_node a, t_node b, t_sched_type type);
+
+#endif
