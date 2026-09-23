@@ -6,11 +6,22 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 10:29:27 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/23 10:45:14 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/23 12:03:30 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "codexion.h"
+
+/*
+** Retorna o elemento de maior prioridade sem remover da fila.
+*/
+int	heap_peek(const t_heap *heap, t_node *min_out)
+{
+	if (!heap || heap->size == 0 || !min_out)
+		return (1);
+	*min_out = heap->data[0];
+	return (0);
+}
 
 /*
 ** Determina se o nó 'a' deve ser atendido antes do nó 'b'.
