@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 12:23:45 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/21 12:38:11 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/28 10:59:50 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,8 @@ void		precise_sleep(long long ms, t_simulation *sim);
 void		log_state(t_coder *coder, const char *msg);
 int			is_simulation_over(t_simulation *sim);
 void		stop_simulation(t_simulation *sim);
+
+void		take_dongles(t_coder *coder);
+void		drop_dongles(t_coder *coder);
 
 #endif
