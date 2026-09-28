@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 11:57:08 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/23 11:58:14 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/28 10:15:32 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef enum e_sched_type
 {
-	SCHED_FIFO,
-	SCHED_EDF
+	CDX_FIFO,
+	CDX_EDF
 }	t_sched_type;
 
 /*

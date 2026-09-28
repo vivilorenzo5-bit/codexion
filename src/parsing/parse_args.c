@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 10:57:18 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/22 11:07:57 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/28 10:16:01 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static int	parse_scheduler(const char *str, t_sched_type *scheduler)
 		return (-1);
 	if (strcmp(str, "fifo") == 0)
 	{
-		*scheduler = SCHED_FIFO;
+		*scheduler = CDX_FIFO;
 		return (0);
 	}
 	if (strcmp(str, "edf") == 0)
 	{
-		*scheduler = SCHED_EDF;
+		*scheduler = CDX_EDF;
 		return (0);
 	}
 	return (-1);

@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 10:29:27 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/28 09:46:51 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/28 10:16:20 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	heap_peek(const t_heap *heap, t_node *min_out)
 */
 int	should_serve_first(t_node a, t_node b, t_sched_type type)
 {
-	if (type == SCHED_EDF)
+	if (type == CDX_EDF)
 	{
 		if (a.deadline != b.deadline)
 			return (a.deadline < b.deadline);
 		return (a.coder_id < b.coder_id);
 	}
-	if (type == SCHED_FIFO)
+	if (type == CDX_FIFO)
 	{
 		if (a.arrival_time != b.arrival_time)
 			return (a.arrival_time < b.arrival_time);
