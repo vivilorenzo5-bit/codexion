@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 12:23:45 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/28 10:59:50 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/29 11:21:05 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,9 @@ void		stop_simulation(t_simulation *sim);
 
 void		take_dongles(t_coder *coder);
 void		drop_dongles(t_coder *coder);
+
+void		*coder_routine(void *arg);
+
+void		*monitor_routine(void *arg);
 
 #endif
