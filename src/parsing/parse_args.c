@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 10:57:18 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/28 10:16:01 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/29 12:18:30 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,15 @@ int	parse_args(int argc, char **argv, t_simulation *sim)
 	sim->num_coders = (int)ft_parse_positive_int(argv[1]);
 	sim->time_to_burnout = ft_parse_positive_int(argv[2]);
 	sim->time_to_compile = ft_parse_positive_int(argv[3]);
-	sim->time_to_burnout = ft_parse_positive_int(argv[4]);
+	sim->time_to_debug = ft_parse_positive_int(argv[4]);
 	sim->time_to_refactor = ft_parse_positive_int(argv[5]);
 	sim->compiles_required = (int)ft_parse_positive_int(argv[6]);
 	sim->dongle_cooldown = ft_parse_positive_int(argv[7]);
 	if (sim->num_coders <= 0 || sim->time_to_burnout <= 0
 		|| sim->time_to_compile <= 0 || sim->time_to_debug <= 0
-		|| sim->time_to_refactor <= 0 || sim->compiles_required < 0
-		|| sim->dongle_cooldown < 0)
+		|| sim->time_to_refactor <= 0)
+		return (1);
+	if (sim->compiles_required < 0 || sim->dongle_cooldown < 0)
 		return (1);
 	if (parse_scheduler(argv[8], &sim->scheduler) != 0)
 		return (1);
