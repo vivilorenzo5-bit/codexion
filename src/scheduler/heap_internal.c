@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 11:56:47 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/23 11:58:53 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/29 12:10:18 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Troca a posição de dois nós dentro do array.
 */
-static void	swap_nodes(t_node *a, t_node *b)
+void	swap_nodes(t_node *a, t_node *b)
 {
 	t_node	tmp;
 
@@ -27,7 +27,7 @@ static void	swap_nodes(t_node *a, t_node *b)
 /*
 ** Restabelece a propriedade de Min-Heap de baixo para cima (bubble-up).
 */
-static void	heapify_up(t_heap *heap, int index)
+void	heapify_up(t_heap *heap, int index)
 {
 	int	parent;
 
@@ -46,7 +46,7 @@ static void	heapify_up(t_heap *heap, int index)
 /*
 ** Restabelece a propriedade de Min-Heap de cima para baixo (bubble-down).
 */
-static void	heapify_down(t_heap *heap, int index)
+void	heapify_down(t_heap *heap, int index)
 {
 	int	smallest;
 	int	left;

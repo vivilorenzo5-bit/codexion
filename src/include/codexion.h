@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 12:23:45 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 11:21:05 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/29 12:11:25 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ struct s_simulation
 /* Protótipos: Parsing & Init */
 int			parse_args(int argc, char **argv, t_simulation *sim);
 int			init_simulation(t_simulation *sim);
-void		cleanupsimulation(t_simulation *sim);
+void		cleanup_simulation(t_simulation *sim);
 
 /* Protótipos: Utils */
 long long	get_current_time_ms(void);
