@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 10:20:05 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/22 10:40:37 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:01:55 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,19 @@ int	is_simulation_over(t_simulation *sim)
 */
 void	stop_simulation(t_simulation *sim)
 {
+	int	i;
+
 	pthread_mutex_lock(&sim->finish_mutex);
 	sim->is_finished = 1;
 	pthread_mutex_unlock(&sim->finish_mutex);
+	i = 0;
+	while (i < sim->num_coders)
+	{
+		pthread_mutex_lock(&sim->dongles[i].mutex);
+		pthread_cond_broadcast(&sim->dongles[i].cond);
+		pthread_mutex_unlock(&sim->dongles[i].mutex);
+		i++;
+	}
 }
 
 /*
