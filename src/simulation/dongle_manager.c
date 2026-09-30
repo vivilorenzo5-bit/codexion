@@ -6,9 +6,11 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 10:58:54 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 09:51:53 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 10:52:41 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "codexion.h"
 
 #include "codexion.h"
 
@@ -55,7 +57,6 @@ static void	acquire_single_dongle(t_coder *coder, t_dongle *d)
 	heap_pop(&d->wait_queue, &top);
 	d->is_in_use = 1;
 	pthread_mutex_unlock(&d->mutex);
-	log_state(coder, "has taken a dongle");
 }
 
 /*
@@ -72,6 +73,7 @@ static void	release_single_dongle(t_coder *coder, t_dongle *d)
 
 /*
 ** Adquire os dois dongles ordenados por ID (prevencao absoluta de deadlock).
+** Emite ambos os logs sequencialmente assim que detem a posse de ambos.
 */
 void	take_dongles(t_coder *coder)
 {
@@ -90,6 +92,8 @@ void	take_dongles(t_coder *coder)
 	}
 	acquire_single_dongle(coder, first);
 	acquire_single_dongle(coder, second);
+	log_state(coder, "has taken a dongle");
+	log_state(coder, "has taken a dongle");
 }
 
 /*
