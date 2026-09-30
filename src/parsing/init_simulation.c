@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 09:52:18 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/28 11:12:16 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:21:23 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	init_single_dongle(t_dongle *d, int id, t_sched_type type)
 		pthread_mutex_destroy(&d->mutex);
 		return (1);
 	}
-	if (heap_init(&d->wait_queue, 2, type) != 0)
+	if (heap_init(&d->wait_queue, 10, type) != 0)
 	{
 		pthread_cond_destroy(&d->cond);
 		pthread_mutex_destroy(&d->mutex);

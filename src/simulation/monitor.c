@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 11:25:33 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 12:13:16 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:54:34 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ static void	report_burnout(t_coder *coder)
 }
 
 /*
-** Inspeciona a caderneta de um coder especifico para avaliar se ocorreu burnout.
-** Retorna 1 se o coder queimou ou 0 se continuar dentro do prazo limite.
+** Inspeciona se o prazo limite de time_to_burnout foi estritamente ultrapassado.
 */
 static int	check_coder_burnout(t_coder *coder)
 {
@@ -41,7 +40,7 @@ static int	check_coder_burnout(t_coder *coder)
 	last_compile = coder->last_compile_start;
 	pthread_mutex_unlock(&coder->coder_muted);
 	time_since_compile = now - last_compile;
-	if (time_since_compile >= coder->sim->time_to_burnout)
+	if (time_since_compile > coder->sim->time_to_burnout)
 	{
 		report_burnout(coder);
 		return (1);
@@ -51,7 +50,6 @@ static int	check_coder_burnout(t_coder *coder)
 
 /*
 ** Avalia se todos os coders da mesa ja atingiram a meta minima de compilacoes.
-** Retorna 1 se todos concluiram a meta (encerrando a simulacao), ou 0 caso contrario.
 */
 static int	check_all_compiled(t_simulation *sim)
 {
@@ -79,8 +77,7 @@ static int	check_all_compiled(t_simulation *sim)
 }
 
 /*
-** Rotina independente da thread de monitorizacao:
-** Executa vistorias ciclicas ate que um burnout ocorra ou a meta seja alcancada.
+** Rotina independente da thread de monitorizacao.
 */
 void	*monitor_routine(void *arg)
 {

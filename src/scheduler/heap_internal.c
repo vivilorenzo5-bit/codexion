@@ -6,14 +6,14 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 11:56:47 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 12:10:18 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:21:07 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "codexion.h"
 
 /*
-** Troca a posição de dois nós dentro do array.
+** Troca a posicao de dois nos dentro do array.
 */
 void	swap_nodes(t_node *a, t_node *b)
 {
@@ -40,6 +40,8 @@ void	heapify_up(t_heap *heap, int index)
 			swap_nodes(&heap->data[index], &heap->data[parent]);
 			index = parent;
 		}
+		else
+			break ;
 	}
 }
 

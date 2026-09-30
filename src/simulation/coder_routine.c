@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 09:51:41 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 10:41:43 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:54:51 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /*
 ** Trata o caso especial em que existe apenas 1 coder e 1 dongle na simulacao.
-** O coder apanha o dongle disponivel e aguarda ate o monitor registar o burnout.
 */
 static void	handle_single_coder(t_coder *coder)
 {
@@ -26,16 +25,11 @@ static void	handle_single_coder(t_coder *coder)
 }
 
 /*
-** Executa o ciclo de compilacao:
-** 1. Atualiza a marca de tempo de inicio da compilacao e incrementa contador.
-** 2. Regista o log "is compiling".
-** 3. Adormece pelo tempo exato de compilacao.
-** 4. Devolve ambos os dongles a mesa.
+** Executa o ciclo de compilacao apos a aquisicao confirmada dos recursos.
 */
 static void	coder_compile(t_coder *coder)
 {
 	pthread_mutex_lock(&coder->coder_muted);
-	coder->last_compile_start = get_current_time_ms();
 	coder->compile_count++;
 	pthread_mutex_unlock(&coder->coder_muted);
 	log_state(coder, "is compiling");
