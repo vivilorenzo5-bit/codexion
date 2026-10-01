@@ -6,7 +6,7 @@
 /*   By: vlourenc <vlourenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 12:23:45 by vlourenc          #+#    #+#             */
-/*   Updated: 2026/09/29 12:11:25 by vlourenc         ###   ########.fr       */
+/*   Updated: 2026/10/01 13:10:43 by vlourenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct s_coder
 	t_dongle		*right_dongle;
 	t_simulation	*sim;
 }	t_coder;
-
 
 struct s_simulation
 {
